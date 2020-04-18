@@ -1,65 +1,97 @@
-#include "../includes/phone_book.hpp"
+#include "phone_book.hpp"
 
-void	search_contact(c_contact annuaire[8])
+static std::string	format_string(std::string input)
 {
-	int		input;
+	std::string	result;
+	int	space_nbr(0);
+
+	space_nbr = 10 - input.size();
+	result.push_back('|');
+	if (space_nbr < 0)
+	{
+		for (int i(0); i < 9; i++)
+			result.push_back(input[i]);
+		result.push_back('.');
+	}
+	else
+	{
+		for (int i(0); i < space_nbr; i++)
+			result.push_back(' ');
+		result.append(input);
+	}
+	return result;
+}
+
+static void	print_main_infos(c_contact const phone_book[8])
+{
 	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
 	for (int i(0); i < 8; i++)
 	{
 		std::cout << "|" << "         " << i + 1;
-		std::cout << "|" << annuaire[i].get_first_name();
-		std::cout << "|" << annuaire[i].get_last_name();
-		std::cout << "|" << annuaire[i].get_login() << "|" << std::endl;
+		std::cout << format_string(phone_book[i].first_name());
+		std::cout << format_string(phone_book[i].last_name());
+		std::cout << format_string(phone_book[i].login()) << '|' << std::endl;
 	}
-	std::cout << "Choose an index" << std::endl;
-	std::cin >> input;
-	input--;
-	annuaire[input].print_first_name_endl();
-	annuaire[input].print_last_name_endl();
-	annuaire[input].print_nickname_endl();
-	annuaire[input].print_login_endl();
-	annuaire[input].print_email_address_endl();
-	annuaire[input].print_favorite_meal_endl();
-	annuaire[input].print_underwear_color_endl();
-	annuaire[input].print_darkest_secret_endl();
-	annuaire[input].print_birthday_date_endl();
-	annuaire[input].print_postal_address_endl();
-	annuaire[input].print_phone_number_endl();
 }
 
-void	add_contact(c_contact annuaire[8])
+static void	search_contact(c_contact const phone_book[8])
 {
-	std::string	answer;
+	int		input(0);
+
+	print_main_infos(phone_book);
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	while (input <= 0 || input >= 9)
+	{
+		std::cout << "Choose an index" << std::endl;
+		std::cin >> input;
+	}
+	input--;
+	phone_book[input].print_first_name_endl();
+	phone_book[input].print_last_name_endl();
+	phone_book[input].print_nickname_endl();
+	phone_book[input].print_login_endl();
+	phone_book[input].print_email_address_endl();
+	phone_book[input].print_favorite_meal_endl();
+	phone_book[input].print_underwear_color_endl();
+	phone_book[input].print_darkest_secret_endl();
+	phone_book[input].print_birthday_date_endl();
+	phone_book[input].print_postal_address_endl();
+	phone_book[input].print_phone_number_endl();
+}
+
+static void	add_contact(c_contact phone_book[8])
+{
 	int			index(0);
 
-	while (annuaire[index].get_fill() == true)
+	while (phone_book[index].fill() == true)
 	{
 		index++;
 		if (index == 8)
-		{
-			index = 1;
-			annuaire[index].set_fill(false);
-		}
+			index = 0;
 	}
-	add_first_name(annuaire[index]);
-	add_last_name(annuaire[index]);
-	add_nickname(annuaire[index]);
-	add_login(annuaire[index]);
-	add_email_address(annuaire[index]);
-	add_favorite_meal(annuaire[index]);
-	add_underwear_color(annuaire[index]);
-	add_darkest_secret(annuaire[index]);
-	add_birthday_date(annuaire[index]);
-	add_postal_address(annuaire[index]);
-	add_phone_number(annuaire[index]);
-
-	annuaire[index].set_fill(true);
+	if (index < 7)
+		phone_book[index + 1].set_fill(false);
+	else if (index == 7)
+		phone_book[0].set_fill(false);
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	add_first_name(phone_book[index]);
+	add_last_name(phone_book[index]);
+	add_nickname(phone_book[index]);
+	add_login(phone_book[index]);
+	add_email_address(phone_book[index]);
+	add_favorite_meal(phone_book[index]);
+	add_underwear_color(phone_book[index]);
+	add_darkest_secret(phone_book[index]);
+	add_birthday_date(phone_book[index]);
+	add_postal_address(phone_book[index]);
+	add_phone_number(phone_book[index]);
+	phone_book[index].set_fill(true);
 }
 
 int		main(void)
 {
 	std::string answer;
-	c_contact	annuaire[8];
+	c_contact	phone_book[8];
 
 	std::cout << "Welcome in your phone book!" << std::endl;
 	while (answer != "exit")
@@ -67,9 +99,9 @@ int		main(void)
 		std::cout << std::endl << "You can type add | search | exit" << std::endl;
 		std::cin >> answer;
 		if (answer == "add")
-			add_contact(annuaire);
+			add_contact(phone_book);
 		else if (answer == "search")
-			search_contact(annuaire);
+			search_contact(phone_book);
 		else if (answer != "exit")
 			answer.clear();
 	}

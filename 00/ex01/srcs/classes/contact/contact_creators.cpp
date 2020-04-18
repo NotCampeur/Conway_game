@@ -1,4 +1,4 @@
-#include "../../../includes/phone_book.hpp"
+#include "phone_book.hpp"
 
 c_contact::c_contact()
 {
@@ -11,7 +11,7 @@ c_contact::c_contact()
     _underwear_color = "NONE";
     _darkest_secret = "NONE";
     _birthday_date = "NONE";
-    _postal_address = 0;
-    _phone_number = 0;
+    _postal_address = "NONE";
+    _phone_number = "NONE";
     _fill = false;
 }

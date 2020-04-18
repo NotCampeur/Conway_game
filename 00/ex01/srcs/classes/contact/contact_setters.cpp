@@ -1,4 +1,4 @@
-#include "../../../includes/phone_book.hpp"
+#include "phone_book.hpp"
     
 void	c_contact::set_first_name(std::string first_name)
 {
@@ -45,12 +45,12 @@ void	c_contact::set_birthday_date(std::string birthday_date)
     _birthday_date = birthday_date;
 }
 
-void	c_contact::set_postal_address(int postal_address)
+void	c_contact::set_postal_address(std::string postal_address)
 {
     _postal_address = postal_address;
 }
 
-void	c_contact::set_phone_number(int phone_number)
+void	c_contact::set_phone_number(std::string phone_number)
 {
     _phone_number = phone_number;
 }

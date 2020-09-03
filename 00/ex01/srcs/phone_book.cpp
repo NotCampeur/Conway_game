@@ -36,27 +36,28 @@ static void	print_main_infos(c_contact const phone_book[8])
 
 static void	search_contact(c_contact const phone_book[8])
 {
-	int		input(0);
+	std::string		input;
+	int 			index(0);
 
 	print_main_infos(phone_book);
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	while (input <= 0 || input >= 9)
+	while (atoi(input.c_str()) <= 0 || atoi(input.c_str()) >= 9)
 	{
 		std::cout << "Choose an index" << std::endl;
-		std::cin >> input;
+		std::getline(std::cin, input);
 	}
-	input--;
-	phone_book[input].print_first_name_endl();
-	phone_book[input].print_last_name_endl();
-	phone_book[input].print_nickname_endl();
-	phone_book[input].print_login_endl();
-	phone_book[input].print_email_address_endl();
-	phone_book[input].print_favorite_meal_endl();
-	phone_book[input].print_underwear_color_endl();
-	phone_book[input].print_darkest_secret_endl();
-	phone_book[input].print_birthday_date_endl();
-	phone_book[input].print_postal_address_endl();
-	phone_book[input].print_phone_number_endl();
+	index = atoi(input.c_str()) - 1;
+	phone_book[index].print_first_name_endl();
+	phone_book[index].print_last_name_endl();
+	phone_book[index].print_nickname_endl();
+	phone_book[index].print_login_endl();
+	phone_book[index].print_email_address_endl();
+	phone_book[index].print_favorite_meal_endl();
+	phone_book[index].print_underwear_color_endl();
+	phone_book[index].print_darkest_secret_endl();
+	phone_book[index].print_birthday_date_endl();
+	phone_book[index].print_postal_address_endl();
+	phone_book[index].print_phone_number_endl();
 }
 
 static void	add_contact(c_contact phone_book[8])

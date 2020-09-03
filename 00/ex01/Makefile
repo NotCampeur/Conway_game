@@ -12,7 +12,7 @@
 
 NAME		= phone_book
 
-CC =		g++
+CC =		clang++
 
 SRC_DIR = 	$(shell find srcs -type d)
 INC_DIR = 	$(shell find includes -type d)
@@ -33,7 +33,7 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 NORMAL_OBJ = $(OBJ) $(addprefix $(OBJ_DIR)/, $(NORMAL_SRC:%.cpp=%.o))
 
 #Compilation flag
-CFLAGS = -Wall -Wextra -Werror #-O3 -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror -O3 -fsanitize=address -g3
 
 IFLAGS = $(foreach dir, $(INC_DIR), -I$(dir))
 

@@ -6,7 +6,7 @@
 /*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/04 11:37:46 by ldutriez          #+#    #+#             */
-/*   Updated: 2020/09/04 14:18:43 by ldutriez         ###   ########.fr       */
+/*   Updated: 2020/09/04 15:45:27 by ldutriez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ZOMBIE_HPP
 
 #include <iostream>
+#include <time.h>
 
 class Zombie
 {
@@ -39,6 +40,7 @@ class Zombie
 
 // CONSTRUCTORS | DESTRUCTOR
 					Zombie();
+					Zombie(bool random);
 					Zombie(ZombieType type, std::string name);
 					~Zombie();
 

@@ -6,7 +6,7 @@
 /*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/04 12:23:01 by ldutriez          #+#    #+#             */
-/*   Updated: 2020/09/04 14:37:51 by ldutriez         ###   ########.fr       */
+/*   Updated: 2020/09/04 16:57:06 by ldutriez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,19 @@
 // CONSTRUCTORS | DESTRUCTOR
 					Zombie::Zombie()
 {
-	_type = ZombieType::basic;
+	_type = static_cast<ZombieType>(8);
 	_name = "Tom";
+}
+
+					Zombie::Zombie(bool random)
+{
+	srand(time(NULL));
+	if (random == true)
+		_type = static_cast<ZombieType>(rand() % 9);
+	else
+	{
+		Zombie();
+	}
 }
 
 					Zombie::Zombie(ZombieType type, std::string name)
@@ -61,7 +72,7 @@ std::string			Zombie::type_str(void) const
 		result.assign("Spitter");
 	else if (_type == ZombieType::witch)
 		result.assign("Witch");
-		return result;
+	return result;
 }
 
 void				Zombie::set_type(ZombieType type)
@@ -77,5 +88,5 @@ void				Zombie::set_name(std::string name)
 // METHOD
 void				Zombie::advert(void) const
 {
-	std::cout << "The " 
+	std::cout << _name << " the " << type_str() << " wander" << std::endl;
 }

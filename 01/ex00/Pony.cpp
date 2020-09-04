@@ -53,7 +53,7 @@ void			Pony::set_mph(int nbr)
 {
 	if (nbr < 0)
 		nbr = 0;
-	_legs_nbr = nbr;
+	_mph = nbr;
 }
 
 int				Pony::legs_nbr(void) const

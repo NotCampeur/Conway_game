@@ -37,6 +37,7 @@ int	 main(void)
 	cyberPony = ponyOnTheHeap(86, 134, 89025);
 	ponyOnTheStack(86, 134, 89025);
 	std::cout << "The heap Pony still alive!!" << std::endl;
+	cyberPony->to_mine();
 	system("wait 2000");
 	delete cyberPony;
 	std::cout << "heap Pony has been deleted, LEAKS ARE NOT ACCEPTED" << std::endl;

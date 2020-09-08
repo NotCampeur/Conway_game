@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/08 09:42:34 by ldutriez          #+#    #+#             */
-/*   Updated: 2020/09/08 11:21:31 by ldutriez         ###   ########.fr       */
+/*   Created: 2020/09/08 11:20:06 by ldutriez          #+#    #+#             */
+/*   Updated: 2020/09/08 13:13:24 by ldutriez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_EVENT_HPP
-# define ZOMBIE_EVENT_HPP
+#ifndef ZOMBIE_HORDE_HPP
+# define ZOMBIE_HORDE_HPP
 
 #include "Zombie.hpp"
 
-class ZombieEvent
+class ZombieHorde
 {
 	private:
-	Zombie::ZombieType _type;
-	
+		Zombie	*_zombies;
+		int		_nZombie;
 	public:
 
 // CONSTRUCTORS | DESTRUCTOR
-			ZombieEvent();
-	Zombie	randomChump(void);
-	Zombie	*newZombie(std::string name);
-			~ZombieEvent();
+			ZombieHorde();
+			ZombieHorde(int n);
+			~ZombieHorde();
 
-// ACCESSORS
-	void	setZombieType(Zombie::ZombieType type);
+// METHOD
+	void	announce() const;
 };
 
 #endif

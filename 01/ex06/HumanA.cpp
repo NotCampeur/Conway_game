@@ -6,29 +6,61 @@
 /*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 16:25:26 by ldutriez          #+#    #+#             */
-/*   Updated: 2020/09/08 16:45:33 by ldutriez         ###   ########.fr       */
+/*   Updated: 2020/09/09 08:44:41 by ldutriez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-		HumanA::HumanA() : _weapon(), _name("John")
+// CREATORS | DESTRUCTOR
+
+					HumanA::HumanA() :_name("John")
+{
+	_weapon = NULL;
+}
+
+					HumanA::HumanA(std::string name)
+{
+	_weapon = NULL;
+	_name = name;
+}
+
+					HumanA::HumanA(std::string name, Weapon &weapon)
+{
+	_weapon = &weapon;
+	_name = name;
+}
+
+					HumanA::~HumanA()
 {
 
 }
 
-		HumanA::HumanA(std::string name, Weapon weapon)
+// ACCESSORS
+
+void				HumanA::setWeapon(Weapon &weapon)
+{
+	_weapon = &weapon;
+}
+
+void				HumanA::setName(std::string name)
 {
 	_name = name;
-	_weapon = weapon;
 }
 
-		HumanA::~HumanA()
+Weapon const		&HumanA::getWeapon(void) const
 {
-
+	return *_weapon;
 }
 
-void	HumanA::attack() const
+std::string	const	&HumanA::getName(void) const
 {
-	std::cout << _name << " strike with " << _weapon.getType() << std::endl;
+	return _name;
+}
+
+// METHOD
+
+void				HumanA::attack() const
+{
+	std::cout << _name << " strike with " << _weapon->getType() << std::endl;
 }

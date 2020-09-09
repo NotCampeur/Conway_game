@@ -6,7 +6,7 @@
 /*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 16:25:06 by ldutriez          #+#    #+#             */
-/*   Updated: 2020/09/08 16:41:45 by ldutriez         ###   ########.fr       */
+/*   Updated: 2020/09/09 08:24:11 by ldutriez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ class Weapon
 	public:
 // CONSTRUCTORS | DESTRUCTOR
 
-				Weapon();
-				Weapon(std::string type);
-				~Weapon();
+						Weapon();
+						Weapon(std::string type);
+						~Weapon();
 
 // ACCESSORS
 
-	std::string	getType() const;
+	std::string const	&getType() const;
 
-	void		setType(std::string type);
+	void				setType(std::string type);
 };
 
 #endif

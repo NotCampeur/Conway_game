@@ -6,7 +6,7 @@
 /*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 16:25:17 by ldutriez          #+#    #+#             */
-/*   Updated: 2020/09/08 16:42:19 by ldutriez         ###   ########.fr       */
+/*   Updated: 2020/09/09 08:24:29 by ldutriez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 }
 
-std::string	Weapon::getType() const
+std::string	const &Weapon::getType() const
 {
 	return _type;
 }

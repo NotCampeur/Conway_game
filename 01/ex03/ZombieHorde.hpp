@@ -6,7 +6,7 @@
 /*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 11:20:06 by ldutriez          #+#    #+#             */
-/*   Updated: 2020/09/08 13:13:24 by ldutriez         ###   ########.fr       */
+/*   Updated: 2020/11/02 17:08:34 by ldutriez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ class ZombieHorde
 
 // METHOD
 	void	announce() const;
+
+// OPERATOR
+	Zombie	&operator[](int n);
 };
 
 #endif

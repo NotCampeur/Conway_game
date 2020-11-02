@@ -6,11 +6,11 @@
 /*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/17 13:46:53 by ldutriez          #+#    #+#             */
-/*   Updated: 2020/09/17 20:43:02 by ldutriez         ###   ########.fr       */
+/*   Updated: 2020/11/02 17:47:25 by ldutriez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "class_init_data.hpp"
+#include "../includes/class_init_data.hpp"
 
 using namespace std;
 

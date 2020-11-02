@@ -5,7 +5,7 @@ int		main()
 {
 	ZombieHorde	students(105);
 
-	srand(time(NULL));
 	students.announce();
+	students[104].announce();
 	return 0;
 }

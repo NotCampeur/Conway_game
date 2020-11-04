@@ -6,7 +6,7 @@
 /*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 14:01:01 by ldutriez          #+#    #+#             */
-/*   Updated: 2020/09/08 16:12:24 by ldutriez         ###   ########.fr       */
+/*   Updated: 2020/11/03 11:09:17 by ldutriez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,14 @@ class Human
 
 	public:
 
+// CONSTRUCTORS | DESTRUCTOR
 				Human();
 				~Human();
 
+// GETTER
 	const Brain &getBrain(void) const;
 
+//METHOD
 	std::string	identify(void) const;
 };
 

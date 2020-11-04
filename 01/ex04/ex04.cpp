@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replacer.hpp                                       :+:      :+:    :+:   */
+/*   ex04.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/09 08:51:54 by ldutriez          #+#    #+#             */
-/*   Updated: 2020/09/09 10:55:34 by ldutriez         ###   ########.fr       */
+/*   Created: 2020/11/03 16:33:11 by ldutriez          #+#    #+#             */
+/*   Updated: 2020/11/03 16:50:24 by ldutriez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef REPLACER_HPP
-# define REPLACER_HPP
+#include <string>
+#include <iostream>
 
-# include <iostream>
-# include <fstream>
-# include "system_data.hpp"
-
-#endif
+int		main(void)
+{
+	std::string	str("HI THIS IS BRAIN");
+	std::string	*pointer(&str);
+	std::string	&reference(str);
+	
+	std::cout << "Printing from a pointer : " << *pointer << std::endl;
+	std::cout << "Printing from a reference : " << reference << std::endl;
+	return 0;
+}

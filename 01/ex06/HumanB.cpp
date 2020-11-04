@@ -6,7 +6,7 @@
 /*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 16:25:30 by ldutriez          #+#    #+#             */
-/*   Updated: 2020/09/09 08:45:52 by ldutriez         ###   ########.fr       */
+/*   Updated: 2020/11/03 17:11:28 by ldutriez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,8 @@ std::string const	&HumanB::getName(void) const
 
 void				HumanB::attack() const
 {
-	std::cout << _name << " strike with " << _weapon->getType() << std::endl;
+	if (_weapon != NULL)
+		std::cout << _name << " strike with " << _weapon->getType() << std::endl;
+	else
+		std::cout << _name << " strike with nothing" << std::endl;
 }

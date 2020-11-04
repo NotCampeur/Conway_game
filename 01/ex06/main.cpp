@@ -6,7 +6,7 @@
 /*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 16:25:22 by ldutriez          #+#    #+#             */
-/*   Updated: 2020/09/09 08:44:27 by ldutriez         ###   ########.fr       */
+/*   Updated: 2020/11/03 17:05:29 by ldutriez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	HumanB_test()
 	Weapon	club = Weapon("crude spiked club");
 
 	HumanB	jim("jim");
+	jim.attack();
 	jim.setWeapon(club);
 	jim.attack();
 	club.setType("Ak47");

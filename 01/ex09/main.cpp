@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/09 15:00:49 by ldutriez          #+#    #+#             */
-/*   Updated: 2020/11/05 11:11:15 by ldutriez         ###   ########.fr       */
+/*   Created: 2020/11/05 13:37:57 by ldutriez          #+#    #+#             */
+/*   Updated: 2020/11/05 14:05:01 by ldutriez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
+#include "Logger.hpp"
 
 int		main()
 {
-	Human	tom;
+	Logger	logger("wtf");
 
-	tom.action("meleeAttack", "segfaults");
-	tom.action("rangedAttack", "leaks");
-	tom.action("intimidatingShoot", "bugs");
+	logger.log("Console", "This is a test");
+	logger.log("File", "This is a file test");
+	logger.log("File", "which I hope work");
 	return 0;
 }

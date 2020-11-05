@@ -6,7 +6,7 @@
 /*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/09 15:01:23 by ldutriez          #+#    #+#             */
-/*   Updated: 2020/11/04 16:46:21 by ldutriez         ###   ########.fr       */
+/*   Updated: 2020/11/05 13:16:31 by ldutriez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ void	Human::action(std::string const &action_name, std::string const &target)
 			return ;
 		}
 	}
-
+	std::cerr << "The action must be either \"meleeAttack\", " <<
+				"\"rangedAttack\" or \"intimidatingShoot\"" << std::endl;
 }

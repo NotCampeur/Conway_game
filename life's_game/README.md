@@ -1,6 +1,6 @@
 # LIFE'S GAME
 
-The project aim to recreate the Conway's game.
+The project aim to recreate the Conway's game in Cpp using SDL2
 
 # The rules:
     -Any live cell with fewer than two live neighbours dies, as if by underpopulation.

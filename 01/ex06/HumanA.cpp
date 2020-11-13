@@ -6,7 +6,7 @@
 /*   By: ldutriez <ldutriez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 16:25:26 by ldutriez          #+#    #+#             */
-/*   Updated: 2020/11/03 16:56:14 by ldutriez         ###   ########.fr       */
+/*   Updated: 2020/11/13 15:33:36 by ldutriez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 
 					HumanA::~HumanA()
 {
-
+	delete _weapon;
 }
 
 // ACCESSORS

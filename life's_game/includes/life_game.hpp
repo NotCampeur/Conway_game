@@ -32,18 +32,23 @@ void		SDL_SetRenderDrawColor(SDL_Renderer *render, SDL_Color color);
 **	EVENT
 */
 
-void		key_manager(SDL_Window *win, SDL_bool *interrupt);
+void		event_manager(SDL_Window *win, SDL_bool *interrupt);
+void		key_manager(SDL_Window *win, SDL_Event e, SDL_bool *interrupt);
+void		click_manager(SDL_Event e);
+void		scroll_manager(SDL_Event e);
 
 /*
 **	RENDER
 */
 
-void	render_screen(SDL_Window **win, SDL_Renderer **render);
+void	render_screen(SDL_Window **win, SDL_Renderer *render);
+void	draw_grid(SDL_Renderer *render);
 
 /*
 **	SYSTEM
 */
 
+void	load(SDL_Window **win, SDL_Renderer **render);
 void	start_window(SDL_Window **win, SDL_Renderer **render);
 void	end_program(SDL_Window *win, SDL_Renderer *render);
 
@@ -52,11 +57,5 @@ void	end_program(SDL_Window *win, SDL_Renderer *render);
 */
 
 void	update(SDL_Window **win, SDL_Renderer **render);
-
-/*
-**	GRID
-*/
-
-void	draw_grid();
 
 #endif

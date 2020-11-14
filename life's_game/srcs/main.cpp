@@ -7,7 +7,7 @@ int		main()
 
 	try
 	{
-		start_window(&win, &render);
+		load(&win, &render);
 		update(&win, &render);
 		end_program(win, render);
 	}

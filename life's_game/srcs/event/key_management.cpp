@@ -1,14 +1,10 @@
 #include "life_game.hpp"
 
-void	key_manager(SDL_Window *win, SDL_bool *interrupt)
+void	key_manager(SDL_Window *win, SDL_Event e, SDL_bool *interrupt)
 {
-	SDL_Event			e;
 	static	SDL_bool	fullscreen(SDL_FALSE);
 	static	SDL_bool	is_f11_up(SDL_TRUE);
 
-	SDL_PollEvent(&e);
-	if (e.type == SDL_QUIT)
-		*interrupt = SDL_TRUE;
 	if (e.type == SDL_KEYDOWN)
 	{
 		if (e.key.keysym.sym == SDLK_ESCAPE)

@@ -41,7 +41,7 @@ void		scroll_manager(SDL_Event e);
 **	RENDER
 */
 
-void	render_screen(SDL_Window **win, SDL_Renderer *render);
+void	render_screen(SDL_Window *win, SDL_Renderer *render);
 void	draw_grid(SDL_Renderer *render);
 
 /*
@@ -56,6 +56,12 @@ void	end_program(SDL_Window *win, SDL_Renderer *render);
 **	UPDATE
 */
 
-void	update(SDL_Window **win, SDL_Renderer **render);
+void	update(SDL_Window *win, SDL_Renderer *render);
+
+/*
+**	ENGINE
+*/
+
+void	next_gen(void);
 
 #endif

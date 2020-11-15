@@ -4,6 +4,7 @@ void	key_manager(SDL_Window *win, SDL_Event e, SDL_bool *interrupt)
 {
 	static	SDL_bool	fullscreen(SDL_FALSE);
 	static	SDL_bool	is_f11_up(SDL_TRUE);
+	static	SDL_bool	is_space_up(SDL_TRUE);
 
 	if (e.type == SDL_KEYDOWN)
 	{
@@ -23,8 +24,21 @@ void	key_manager(SDL_Window *win, SDL_Event e, SDL_bool *interrupt)
 				fullscreen = SDL_TRUE;
 			}
 		}
+		else if	(e.key.keysym.sym == SDLK_SPACE && is_space_up == SDL_TRUE)
+		{
+			is_space_up = SDL_FALSE;
+			next_gen();
+		}
 	}
 	if (e.type == SDL_KEYUP)
+	{
 		if (e.key.keysym.sym == SDLK_F11)
 			is_f11_up = SDL_TRUE;
+		else if (e.key.keysym.sym == SDLK_SPACE)
+			is_space_up = SDL_TRUE;
+		else if (e.key.keysym.sym == SDLK_e)
+			auto_run = SDL_TRUE;
+		else if (e.key.keysym.sym == SDLK_d)
+			auto_run = SDL_FALSE;
+	}
 }

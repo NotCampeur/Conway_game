@@ -8,7 +8,7 @@ int		main()
 	try
 	{
 		load(&win, &render);
-		update(&win, &render);
+		update(win, render);
 		end_program(win, render);
 	}
 	catch (std::invalid_argument &e) 

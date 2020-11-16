@@ -5,5 +5,6 @@
 
 extern int		grid[GRID_WIDTH][GRID_HEIGHT];
 extern SDL_bool	auto_run;
+extern SDL_Rect	cam;
 
 #endif

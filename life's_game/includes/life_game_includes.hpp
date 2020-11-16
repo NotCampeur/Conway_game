@@ -4,6 +4,8 @@
 # include <iostream>
 # include <SDL2/SDL.h>
 # include <exception>
+# include <stdlib.h>
+# include <time.h>
 # include "life_game_define.hpp"
 # include "life_game_extern.hpp"
 # include "error_manager.hpp"

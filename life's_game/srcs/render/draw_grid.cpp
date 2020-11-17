@@ -1,6 +1,6 @@
 #include "life_game.hpp"
 
-void	draw_grid(SDL_Renderer *render)
+void	draw_grid()
 {
 	SDL_Rect	square;
 
@@ -8,15 +8,15 @@ void	draw_grid(SDL_Renderer *render)
 	{
 		for (int j(0); j < GRID_HEIGHT; j++)
 		{
-			if (grid[i][j] == 0)
-				SDL_SetRenderDrawColor(render, 255, 255, 255, 255);
+			if (sys->grid[i][j] == 0)
+				SDL_SetRenderDrawColor(sys->render, 255, 255, 255, 255);
 			else
-				if (auto_run == SDL_FALSE)
-					SDL_SetRenderDrawColor(render, 0, 0, 0, 255);
+				if (sys->auto_run == SDL_FALSE)
+					SDL_SetRenderDrawColor(sys->render, 0, 0, 0, 255);
 				else
-					SDL_SetRenderDrawColor(render, 0, 125, 225, 255);
+					SDL_SetRenderDrawColor(sys->render, 0, 125, 225, 255);
 			square = rect_init(i * (TILE_WIDTH + 1), j * (TILE_HEIGHT + 1), TILE_WIDTH, TILE_HEIGHT);
-			SDL_RenderFillRect(render, &square);
+			SDL_RenderFillRect(sys->render, &square);
 		}
 	}
 }

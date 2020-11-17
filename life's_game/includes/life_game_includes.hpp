@@ -3,6 +3,8 @@
 
 # include <iostream>
 # include <SDL2/SDL.h>
+# include <SDL2/SDL_ttf.h>
+# include <SDL2/SDL_image.h>
 # include <exception>
 # include <stdlib.h>
 # include <time.h>

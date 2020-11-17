@@ -1,14 +1,10 @@
 #include "life_game.hpp"
 
-int			grid[GRID_WIDTH][GRID_HEIGHT]{};
-SDL_bool	auto_run;
-SDL_Rect	cam;
+t_system *sys = NULL;
 
-
-void	load(SDL_Window **win, SDL_Renderer **render)
+void	load()
 {
-	start_window(win, render);
+	system_malloc();
+	start_window();
 	srand(time(NULL));
-	cam = rect_init(0, 0, 1, 1);
-	auto_run = SDL_FALSE;
 }

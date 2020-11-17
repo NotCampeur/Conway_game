@@ -32,8 +32,8 @@ void		SDL_SetRenderDrawColor(SDL_Renderer *render, SDL_Color color);
 **	EVENT
 */
 
-void		event_manager(SDL_Window *win, SDL_bool *interrupt);
-void		key_manager(SDL_Window *win, SDL_Event e, SDL_bool *interrupt);
+void		event_manager(void);
+void		key_manager(SDL_Event e);
 void		click_manager(SDL_Event e);
 void		scroll_manager(SDL_Event e);
 void		movement_manager(SDL_Event e);
@@ -42,22 +42,23 @@ void		movement_manager(SDL_Event e);
 **	RENDER
 */
 
-void		render_screen(SDL_Window *win, SDL_Renderer *render);
-void		draw_grid(SDL_Renderer *render);
+void		render_screen(void);
+void		render_texture(SDL_Texture **tex, SDL_Rect *src = NULL, SDL_Rect *dst = NULL, bool horizontal_flip = false);
+void		draw_grid(void);
 
 /*
 **	SYSTEM
 */
 
-void		load(SDL_Window **win, SDL_Renderer **render);
-void		start_window(SDL_Window **win, SDL_Renderer **render);
-void		end_program(SDL_Window *win, SDL_Renderer *render);
+void		load(void);
+void		start_window(void);
+void		end_program(void);
 
 /*
 **	UPDATE
 */
 
-void		update(SDL_Window *win, SDL_Renderer *render);
+void		update(void);
 
 /*
 **	ENGINE
@@ -66,5 +67,18 @@ void		update(SDL_Window *win, SDL_Renderer *render);
 void		next_gen(void);
 void		clear_grid(void);
 void		random_grid(void);
+
+/*
+**	TEXTURE
+*/
+
+SDL_Texture	**create_image_texture(std::string path);
+SDL_Texture	**create_texture(SDL_Surface *surface);
+
+/*
+**	TEXT
+*/
+
+void	draw_text(const char *to_print, SDL_Rect *pos, SDL_Color color);
 
 #endif

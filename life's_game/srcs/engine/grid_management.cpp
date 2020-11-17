@@ -4,12 +4,12 @@ void	clear_grid(void)
 {
 	for (int i(0); i < GRID_WIDTH; i++)
 		for (int j(0); j < GRID_HEIGHT; j++)
-			grid[i][j] = 0;
+			sys->grid[i][j] = 0;
 }
 
 void	random_grid(void)
 {
 	for (int i(0); i < GRID_WIDTH; i++)
 		for (int j(0); j < GRID_HEIGHT; j++)
-			grid[i][j] = rand() % 2;
+			sys->grid[i][j] = rand() % 2;
 }

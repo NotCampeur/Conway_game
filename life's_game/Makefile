@@ -28,8 +28,10 @@ $(OBJ_DIR)/%.o : %.cpp
 				@$(CC) $(CFLAGS) $(IFLAGS) `sdl2-config --cflags` -o $@ -c $<
 
 $(NAME):		$(OBJ) $(INC_DIR) 
-				@$(CC) $(CFLAGS) $(OBJ) `sdl2-config --libs` -o $(NAME)
+				@$(CC) $(CFLAGS) $(OBJ) `sdl2-config --libs` -lSDL2_ttf -lSDL2_image -o $(NAME)
 				@rm -rf $(OBJ_DIR)
+install:
+				echo "user42" | sudo apt-get install libsdl2-2.0-0 libsdl2-gfx-1.0-0 libsdl2-image-dev libsdl2-mixer-2.0-0 libsdl2-net-2.0-0 libsdl2-ttf-dev
 
 exec:			$(NAME)
 				@./$(NAME)
@@ -42,4 +44,4 @@ clean:
 fclean:			clean
 				@rm -f $(NAME)
 
-.PHONY: all clean fclean re show exec
+.PHONY: all clean fclean re show exec install

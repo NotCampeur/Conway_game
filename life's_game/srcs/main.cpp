@@ -2,14 +2,11 @@
 
 int		main()
 {
-	SDL_Window		*win(NULL);
-	SDL_Renderer	*render(NULL);
-
 	try
 	{
-		load(&win, &render);
-		update(win, render);
-		end_program(win, render);
+		load();
+		update();
+		end_program();
 	}
 	catch (std::invalid_argument &e) 
 	{

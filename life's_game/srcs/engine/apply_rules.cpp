@@ -38,15 +38,16 @@ static SDL_bool	is_survivable(int i, int j)
 
 void	next_gen(void)
 {
-	int	tmp[GRID_WIDTH][GRID_HEIGHT]{};
+	count_gen++;
+	int	tmp[GRID_HEIGHT][GRID_WIDTH]{};
 
-	for (int i(0); i < GRID_WIDTH; i++)
-		for (int j(0); j < GRID_HEIGHT; j++)
+	for (int i(0); i < GRID_HEIGHT; i++)
+		for (int j(0); j < GRID_WIDTH; j++)
 			if (is_spawnable(i, j) || is_survivable(i, j))
 				tmp[i][j] = 1;
 			else
 				tmp[i][j] = 0;
-	for (int i(0); i < GRID_WIDTH; i++)
-		for (int j(0); j < GRID_HEIGHT; j++)
+	for (int i(0); i < GRID_HEIGHT; i++)
+		for (int j(0); j < GRID_WIDTH; j++)
 			grid[i][j] = tmp[i][j];
 }

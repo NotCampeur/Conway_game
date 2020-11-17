@@ -10,7 +10,7 @@ void	update(SDL_Window *win, SDL_Renderer *render)
 	{
 		event_manager(win, &interrupt);
 		act_t = SDL_GetTicks();
-		if (act_t - prev_t >= 0)
+		if (act_t - prev_t >= 100)
 		{
 			if (auto_run == SDL_TRUE)
 				next_gen();

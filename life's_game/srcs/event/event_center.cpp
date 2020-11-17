@@ -4,7 +4,7 @@ void	event_manager(SDL_Window *win, SDL_bool *interrupt)
 {
 	SDL_Event			e;
 
-	if (SDL_PollEvent(&e) == 1)
+	while (SDL_PollEvent(&e) == 1)
 	{
 		if (e.type == SDL_QUIT)
 			*interrupt = SDL_TRUE;

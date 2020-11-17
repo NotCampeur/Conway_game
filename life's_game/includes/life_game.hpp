@@ -66,5 +66,6 @@ void		update(SDL_Window *win, SDL_Renderer *render);
 void		next_gen(void);
 void		clear_grid(void);
 void		random_grid(void);
+void		save_grid(void);
 
 #endif

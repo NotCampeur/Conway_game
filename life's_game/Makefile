@@ -27,9 +27,8 @@ $(OBJ_DIR)/%.o : %.cpp
 				@mkdir -p $(OBJ_DIR)
 				@$(CC) $(CFLAGS) $(IFLAGS) `sdl2-config --cflags` -o $@ -c $<
 
-$(NAME):		$(OBJ) $(INC_DIR) 
-				@$(CC) $(CFLAGS) $(OBJ) `sdl2-config --libs` -o $(NAME)
-				@rm -rf $(OBJ_DIR)
+$(NAME):		$(OBJ) $(INC_DIR)
+				@$(CC) $(CFLAGS) $(OBJ) `sdl2-config --libs` -lSDL2_ttf -o $(NAME)
 
 exec:			$(NAME)
 				@./$(NAME)

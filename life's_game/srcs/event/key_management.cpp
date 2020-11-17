@@ -24,12 +24,19 @@ void	key_manager(SDL_Window *win, SDL_Event e, SDL_bool *interrupt)
 		else if	(e.key.keysym.sym == SDLK_SPACE)
 			next_gen();
 		else if (e.key.keysym.sym == SDLK_e)
-			auto_run = SDL_TRUE;
-		else if (e.key.keysym.sym == SDLK_d)
+		{
+			if (auto_run == SDL_FALSE)
+				auto_run = SDL_TRUE;
+			else
+				auto_run = SDL_FALSE;
+		}
+		else if (e.key.keysym.sym == SDLK_e)
 			auto_run = SDL_FALSE;
 		else if (e.key.keysym.sym == SDLK_c)
 			clear_grid();
 		else if (e.key.keysym.sym == SDLK_r)
 			random_grid();
+		else if (e.key.keysym.sym == SDLK_s)
+			save_grid();
 	}
 }

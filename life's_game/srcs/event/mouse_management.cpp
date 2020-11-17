@@ -9,10 +9,10 @@ void	click_manager(SDL_Event e)
 		&& e.button.y < (TILE_HEIGHT + 1) * GRID_HEIGHT
 		&& e.button.x < (TILE_WIDTH + 1) * GRID_WIDTH)
 	{
-		if (grid[e.button.x / (TILE_WIDTH + 1)][e.button.y / (TILE_HEIGHT + 1)] == 0)
-			grid[e.button.x / (TILE_WIDTH + 1)][e.button.y / (TILE_HEIGHT + 1)] = 1;
+		if (grid[e.button.y / (TILE_HEIGHT + 1)][e.button.x / (TILE_WIDTH + 1)] == 0)
+			grid[e.button.y / (TILE_HEIGHT + 1)][e.button.x / (TILE_WIDTH + 1)] = 1;
 		else
-			grid[e.button.x / (TILE_WIDTH + 1)][e.button.y / (TILE_HEIGHT + 1)] = 0;
+			grid[e.button.y / (TILE_HEIGHT + 1)][e.button.x / (TILE_WIDTH + 1)] = 0;
 	}
 }
 

@@ -12,6 +12,8 @@ typedef struct			s_system
 	SDL_bool			interrupt;
 	SDL_bool			auto_run;
 	SDL_bool			fullscreen;
+	SDL_bool			mouse_left_hold;
+	SDL_bool			mouse_right_hold;
 	SDL_Rect			cam;
 	TTF_Font			*font;
 }						t_system;

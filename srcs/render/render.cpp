@@ -23,9 +23,15 @@ void	render_screen()
 	if (SDL_RenderClear(sys->render) != 0)
 		throw std::invalid_argument(E_SDL RENDERCLEAR);
 	draw_grid();
-	pos = rect_init(500, 200, 300, 300);
-	// render_texture(create_image_texture("ressources/ncoudsi.jpg"), NULL, &pos);
-	pos = rect_init(500, 500, 300, 50);
-	//draw_text("Un pure BG, il est trop craquant", &pos, color_init(0, 0, 0));
+	pos = rect_init(80, 10, 100, 100);
+	render_texture(create_image_texture("ressources/ncoudsi.jpg"), NULL, &pos);
+	pos = rect_init(200, 10, 100, 100);
+	render_texture(create_image_texture("ressources/ldutriez.jpg"), NULL, &pos);
+	pos = rect_init(320, 10, 100, 100);
+	render_texture(create_image_texture("ressources/chdespon.jpg"), NULL, &pos);
+	pos = rect_init(10, 10, std::to_string(sys->gen_count).length() * 14, 50);
+	draw_text(std::to_string(sys->gen_count), &pos, color_init(255, 0, 0));
+	pos = rect_init(90, 120, 320, 80);
+	draw_text("THE HANDSOMESTS", &pos, color_init(0, 255, 0));
 	SDL_RenderPresent(sys->render);
 }

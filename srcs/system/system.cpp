@@ -10,6 +10,7 @@ void	start_window()
 		throw std::invalid_argument(E_SDL FONT);
 	if (IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG) == 0)
 		throw std::invalid_argument(E_SDL IMAGE_INIT);
+	SDL_SetWindowTitle(sys->win, "Life's game of the three tricksters");
 }
 
 void	end_program()
@@ -36,6 +37,7 @@ void	system_malloc(void)
 	sys->interrupt = SDL_FALSE;
 	sys->auto_run = SDL_FALSE;
 	sys->fullscreen = SDL_FALSE;
+	sys->mouse_left_hold = SDL_FALSE;
+	sys->mouse_right_hold = SDL_FALSE;
 	sys->cam = rect_init(0, 0, 1, 1);
-	sys->font = TTF_OpenFont("ressources/OpenSans-Bold.ttf", 20);
 }

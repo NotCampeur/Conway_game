@@ -12,8 +12,10 @@ void	event_manager()
 			key_manager(e);
 		else if (e.type == SDL_KEYDOWN)
 			movement_manager(e);
-		else if (e.type == SDL_MOUSEBUTTONDOWN)
+		else if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP)
 			click_manager(e);
+		else if (e.type == SDL_MOUSEMOTION)
+			motion_manager(e);
 		else if (e.type == SDL_MOUSEWHEEL)
 			scroll_manager(e);
 	}

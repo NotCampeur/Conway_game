@@ -9,7 +9,7 @@ void	update()
 	{
 		act_t = SDL_GetTicks();
 		event_manager();
-		if (act_t - prev_t >= 100)
+		if (act_t - prev_t >= 0)
 		{
 			if (sys->auto_run == SDL_TRUE)
 				next_gen();

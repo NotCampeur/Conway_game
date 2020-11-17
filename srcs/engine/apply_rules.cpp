@@ -9,7 +9,7 @@ static SDL_bool	is_spawnable(int i, int j)
 		for (int n(-1); n < 2; n++)
 			for (int m(-1); m < 2; m++)
 				if (i + n >= 0 && j + m >= 0
-					&& i + n < GRID_WIDTH && j + m < GRID_HEIGHT
+					&& i + n < GRID_HEIGHT && j + m < GRID_WIDTH
 					&& sys->grid[i + n][j + m] == 1)
 					neighbours++;
 	}
@@ -27,7 +27,7 @@ static SDL_bool	is_survivable(int i, int j)
 		for (int n(-1); n < 2; n++)
 			for (int m(-1); m < 2; m++)
 				if (i + n >= 0 && j + m >= 0
-					&& i + n < GRID_WIDTH && j + m < GRID_HEIGHT
+					&& i + n < GRID_HEIGHT && j + m < GRID_WIDTH
 					&& sys->grid[i + n][j + m] == 1)
 					neighbours++;
 	}

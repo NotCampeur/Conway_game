@@ -35,6 +35,7 @@ void		SDL_SetRenderDrawColor(SDL_Color color);
 void		event_manager(void);
 void		key_manager(SDL_Event e);
 void		click_manager(SDL_Event e);
+void		motion_manager(SDL_Event e);
 void		scroll_manager(SDL_Event e);
 void		movement_manager(SDL_Event e);
 
@@ -80,6 +81,6 @@ SDL_Texture	**create_texture(SDL_Surface *surface);
 **	TEXT
 */
 
-void	draw_text(const char *to_print, SDL_Rect *pos, SDL_Color color);
+void	draw_text(std::string to_print, SDL_Rect *pos, SDL_Color color);
 
 #endif

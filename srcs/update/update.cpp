@@ -17,4 +17,6 @@ void	update()
 		}
 		render_screen();
 	}
+	SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION, "GOODBYE",
+		"Thanks for playing !", sys->win);
 }

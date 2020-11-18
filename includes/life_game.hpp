@@ -69,6 +69,7 @@ void		next_gen(void);
 void		clear_grid(void);
 void		random_grid(void);
 void		save_grid(void);
+void		welcome_message(void);
 
 /*
 **	TEXTURE

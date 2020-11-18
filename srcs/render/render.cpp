@@ -34,4 +34,5 @@ void	render_screen()
 	pos = rect_init(90, 120, 320, 80);
 	draw_text("THE HANDSOMESTS", &pos, color_init(0, 255, 0));
 	SDL_RenderPresent(sys->render);
+	welcome_message();
 }

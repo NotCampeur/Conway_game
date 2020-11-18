@@ -17,17 +17,24 @@ void	random_grid(void)
 void	save_grid(void)
 {
 	std::ofstream		flux;
-	
-	flux.open("ressources/grid/" + input_box());
-	if (flux)
+	std::string			file_name;
+	SDL_bool			confirm(SDL_FALSE);
+
+	file_name = input_box();
+	confirm = confirm_message("Please confirm", "Do you want to save the file as : " + file_name);
+	if (confirm == SDL_TRUE)
 	{
-		for (int y(0); y < GRID_HEIGHT; y++)
+		flux.open("ressources/grid/" + file_name);
+		if (flux)
 		{
-			for (int x(0); x < GRID_WIDTH; x++)
-				flux << sys->grid[y][x];
-			flux << "\n";
+			for (int y(0); y < GRID_HEIGHT; y++)
+			{
+				for (int x(0); x < GRID_WIDTH; x++)
+					flux << sys->grid[y][x];
+				flux << "\n";
+			}
 		}
+		else
+			throw std::invalid_argument(" impossible to open the save file");
 	}
-	else
-		throw std::invalid_argument(" impossible to open the save file");
 }

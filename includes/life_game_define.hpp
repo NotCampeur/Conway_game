@@ -6,4 +6,6 @@
 # define TILE_WIDTH 20
 # define TILE_HEIGHT 20
 
+# define MAX_SAVE_FILE_NAME 30
+
 #endif

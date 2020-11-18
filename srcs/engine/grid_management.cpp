@@ -16,10 +16,9 @@ void	random_grid(void)
 
 void	save_grid(void)
 {
-	std::string const	grid_save("ressources/grid_1.txt");
 	std::ofstream		flux;
 	
-	flux.open(grid_save.c_str());
+	flux.open("ressources/grid/" + input_box());
 	if (flux)
 	{
 		for (int y(0); y < GRID_HEIGHT; y++)

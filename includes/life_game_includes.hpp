@@ -2,6 +2,7 @@
 # define LIFE_GAME_INCLUDES_HPP
 
 # include <iostream>
+# include <vector>
 # include <fstream>
 # include <SDL2/SDL.h>
 # include <SDL2/SDL_ttf.h>

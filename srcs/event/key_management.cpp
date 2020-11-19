@@ -34,5 +34,7 @@ void	key_manager(SDL_Event e)
 			random_grid();
 		else if (e.key.keysym.sym == SDLK_s)
 			save_grid();
+		else if (e.key.keysym.sym == SDLK_l)
+			load_grid();
 	}
 }

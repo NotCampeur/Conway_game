@@ -1,0 +1,5 @@
+4
+full
+glider_gun
+horizontal_line
+vertical_line

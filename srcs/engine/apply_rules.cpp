@@ -3,15 +3,29 @@
 static SDL_bool	is_spawnable(int i, int j)
 {
 	char	neighbours(0);
+	int		y(i);
+	int		x(j);
 
 	if (sys->grid[i][j] == 0)
 	{
 		for (int n(-1); n < 2; n++)
+		{
+			i = y;
 			for (int m(-1); m < 2; m++)
-				if (i + n >= 0 && j + m >= 0
-					&& i + n < GRID_HEIGHT && j + m < GRID_WIDTH
-					&& sys->grid[i + n][j + m] == 1)
+			{
+				j = x;
+				if (i + n < 0)
+					i = GRID_HEIGHT;
+				else if (i + n >= GRID_HEIGHT)
+					i = -1;
+				if (j + m < 0)
+					j = GRID_WIDTH;
+				else if (j + m >= GRID_WIDTH)
+					j = -1;
+				if (sys->grid[i + n][j + m] == 1)
 					neighbours++;
+			}
+		}
 	}
 	if (neighbours == 3)
 		return SDL_TRUE;
@@ -21,15 +35,29 @@ static SDL_bool	is_spawnable(int i, int j)
 static SDL_bool	is_survivable(int i, int j)
 {
 	char	neighbours(-1);
+	int		y(i);
+	int		x(j);
 
 	if (sys->grid[i][j] == 1)
 	{
 		for (int n(-1); n < 2; n++)
+		{
+			i = y;
 			for (int m(-1); m < 2; m++)
-				if (i + n >= 0 && j + m >= 0
-					&& i + n < GRID_HEIGHT && j + m < GRID_WIDTH
-					&& sys->grid[i + n][j + m] == 1)
+			{
+				j = x;
+				if (i + n < 0)
+					i = GRID_HEIGHT;
+				else if (i + n >= GRID_HEIGHT)
+					i = -1;
+				if (j + m < 0)
+					j = GRID_WIDTH;
+				else if (j + m >= GRID_WIDTH)
+					j = -1;
+				if (sys->grid[i + n][j + m] == 1)
 					neighbours++;
+			}
+		}
 	}
 	if (neighbours == 3 || neighbours == 2)
 		return SDL_TRUE;

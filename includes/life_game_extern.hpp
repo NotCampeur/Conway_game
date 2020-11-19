@@ -16,10 +16,9 @@ typedef struct			s_system
 	SDL_bool			mouse_right_hold;
 	SDL_Rect			cam;
 	TTF_Font			*font;
+	SDL_Point			win_size;
 }						t_system;
 
 extern t_system *sys;
-
-void	system_malloc(void);
 
 #endif

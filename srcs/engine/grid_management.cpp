@@ -20,21 +20,20 @@ void	save_grid(void)
 	std::string			file_name;
 	SDL_bool			confirm(SDL_FALSE);
 
-	file_name = input_box();
-	confirm = confirm_message("Please confirm", "Do you want to save the file as : " + file_name);
+	file_name = input_box("Write the file name please :");
+	confirm = confirm_message("Please confirm", "Do you want to save the grid as : " + file_name);
 	if (confirm == SDL_TRUE)
 	{
 		flux.open("ressources/grid/" + file_name);
 		if (flux)
-		{
 			for (int y(0); y < GRID_HEIGHT; y++)
 			{
 				for (int x(0); x < GRID_WIDTH; x++)
 					flux << sys->grid[y][x];
 				flux << "\n";
 			}
-		}
 		else
-			throw std::invalid_argument(" impossible to open the save file");
+			SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_WARNING, "CAREFUL"
+									, "The file can't be created / overwrite", sys->win);
 	}
 }

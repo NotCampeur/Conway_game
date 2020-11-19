@@ -26,18 +26,23 @@ void	end_program()
 	delete sys;
 }
 
-void	system_malloc(void)
+void	system_get_window_size(void)
+{
+	SDL_GetWindowSize(sys->win, &sys->win_size.x, &sys->win_size.y);
+}
+
+void	system_init(void)
 {
 	sys = new t_system;
 
 	sys->win = NULL;
 	sys->render = NULL;
 	sys->gen_count = 0;
-	// sys->grid;
 	sys->interrupt = SDL_FALSE;
 	sys->auto_run = SDL_FALSE;
 	sys->fullscreen = SDL_FALSE;
 	sys->mouse_left_hold = SDL_FALSE;
 	sys->mouse_right_hold = SDL_FALSE;
 	sys->cam = rect_init(0, 0, 1, 1);
+	system_get_window_size();
 }

@@ -6,7 +6,7 @@ static SDL_bool	is_spawnable(int i, int j)
 	int		y(i);
 	int		x(j);
 
-	if (sys->grid[i][j] == 0)
+	if (sys->grid[i][j] == '0')
 	{
 		for (int n(-1); n < 2; n++)
 		{
@@ -15,14 +15,14 @@ static SDL_bool	is_spawnable(int i, int j)
 			{
 				j = x;
 				if (i + n < 0)
-					i = GRID_HEIGHT;
-				else if (i + n >= GRID_HEIGHT)
+					i = sys->grid_size.y;
+				else if (i + n >= sys->grid_size.y)
 					i = -1;
 				if (j + m < 0)
-					j = GRID_WIDTH;
-				else if (j + m >= GRID_WIDTH)
+					j = sys->grid_size.x;
+				else if (j + m >= sys->grid_size.x)
 					j = -1;
-				if (sys->grid[i + n][j + m] == 1)
+				if (sys->grid[i + n][j + m] == '1')
 					neighbours++;
 			}
 		}
@@ -38,7 +38,7 @@ static SDL_bool	is_survivable(int i, int j)
 	int		y(i);
 	int		x(j);
 
-	if (sys->grid[i][j] == 1)
+	if (sys->grid[i][j] == '1')
 	{
 		for (int n(-1); n < 2; n++)
 		{
@@ -47,14 +47,14 @@ static SDL_bool	is_survivable(int i, int j)
 			{
 				j = x;
 				if (i + n < 0)
-					i = GRID_HEIGHT;
-				else if (i + n >= GRID_HEIGHT)
+					i = sys->grid_size.y;
+				else if (i + n >= sys->grid_size.y)
 					i = -1;
 				if (j + m < 0)
-					j = GRID_WIDTH;
-				else if (j + m >= GRID_WIDTH)
+					j = sys->grid_size.x;
+				else if (j + m >= sys->grid_size.x)
 					j = -1;
-				if (sys->grid[i + n][j + m] == 1)
+				if (sys->grid[i + n][j + m] == '1')
 					neighbours++;
 			}
 		}
@@ -66,16 +66,16 @@ static SDL_bool	is_survivable(int i, int j)
 
 void	next_gen(void)
 {
-	sys->gen_count++;
-	int	tmp[GRID_HEIGHT][GRID_WIDTH]{};
+	char	tmp[sys->grid_size.y][sys->grid_size.x];
 
-	for (int i(0); i < GRID_HEIGHT; i++)
-		for (int j(0); j < GRID_WIDTH; j++)
-			if (is_spawnable(i, j) || is_survivable(i, j))
-				tmp[i][j] = 1;
+	sys->gen_count++;
+	for (int i(0); i < sys->grid_size.y; i++)
+		for (int j(0); j < sys->grid_size.x; j++)
+			if (is_spawnable(i, j) == SDL_TRUE || is_survivable(i, j) == SDL_TRUE)
+				tmp[i][j] = '1';
 			else
-				tmp[i][j] = 0;
-	for (int i(0); i < GRID_HEIGHT; i++)
-		for (int j(0); j < GRID_WIDTH; j++)
+				tmp[i][j] = '0';
+	for (int i(0); i < sys->grid_size.y; i++)
+		for (int j(0); j < sys->grid_size.x; j++)
 			sys->grid[i][j] = tmp[i][j];
 }

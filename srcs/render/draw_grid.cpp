@@ -4,11 +4,11 @@ void	draw_grid()
 {
 	SDL_Rect	square;
 
-	for (int i(0); i < GRID_HEIGHT; i++)
+	for (int i(0); i < sys->grid_size.y; i++)
 	{
-		for (int j(0); j < GRID_WIDTH; j++)
+		for (int j(0); j < sys->grid_size.x; j++)
 		{
-			if (sys->grid[i][j] == 0)
+			if (sys->grid[i][j] == '0')
 				SDL_SetRenderDrawColor(sys->render, 0, 0, 0, 255);
 			else
 				if (sys->auto_run == SDL_FALSE)

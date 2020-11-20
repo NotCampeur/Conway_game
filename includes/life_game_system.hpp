@@ -20,4 +20,14 @@ void		system_init(void);
  */
 void		system_get_window_size(void);
 
+/**
+ *  \brief Will rezise the grid according to the sys->grid_size variable.
+ */
+void		system_init_grid(void);
+
+/**
+ *  \brief Will free the memory of the grid.
+ */
+void		system_delete_grid(void);
+
 #endif

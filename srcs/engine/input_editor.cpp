@@ -88,7 +88,8 @@ void	catch_input(SDL_Event e, std::string &string, unsigned long &index
 					, SDL_bool &done, std::vector<std::string> &proposition
 					, int &proposition_index)
 {
-	if (e.key.keysym.sym == SDLK_RETURN && string.size() >= 2)
+	if ((e.key.keysym.sym == SDLK_RETURN && string.size() >= 2)
+			|| e.key.keysym.sym == SDLK_ESCAPE)
 		done = SDL_TRUE;
 	else if ((e.key.keysym.sym >= SDLK_a && e.key.keysym.sym <= SDLK_z)
 			|| (e.key.keysym.sym >= SDLK_0 && e.key.keysym.sym <= SDLK_9)

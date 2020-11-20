@@ -13,6 +13,7 @@ void	welcome_message(void)
 		"  c = clear                         r = random gen\n"
 		"  l_click = spawn cells    r_click = destroy cells\n"
 		"  s = save current grid      enter = confirm input\n"
+		"  l = load a grid                                 \n"
 		"  escape = quit                   F11 = fullscreen\n",
 		sys->win);
 		printed = true;

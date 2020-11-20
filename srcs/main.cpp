@@ -1,5 +1,10 @@
 #include "life_game.hpp"
 
+/**
+ *	TODO | Ask the user the size of the grid he want to launch
+ *	TODO | Parse the file before the load
+ */
+
 int		main()
 {
 	try

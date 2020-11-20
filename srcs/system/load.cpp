@@ -6,6 +6,6 @@ void	load()
 {
 	system_init();
 	start_window();
-	sys->font = TTF_OpenFont("ressources/OpenSans-Bold.ttf", 20);
+	sys->font = TTF_OpenFont("ressources/fonts/OpenSans-Bold.ttf", 20);
 	srand(time(NULL));
 }

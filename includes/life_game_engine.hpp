@@ -27,6 +27,13 @@ void		save_grid(void);
 void		load_grid(void);
 
 /**
+ *  \brief Will mesure the grid size of a file.
+ * 
+ *  \param file_name	The file to count from.
+ */
+SDL_Point	get_grid_size(std::string file_name);
+
+/**
  *  \brief Create a dialog box with a message and a list of the command.
  */
 void		welcome_message(void);

@@ -1,7 +1,7 @@
 #include "life_game.hpp"
 
 /**
- *	TODO | Ask the user the size of the grid he want to launch
+ *	TODO | Add a struct / class for the input box data.
  *	TODO | Parse the file before the load
  */
 

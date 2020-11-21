@@ -34,7 +34,17 @@ void	system_get_window_size(void)
 
 void	system_init_grid(void)
 {
+	std::vector<std::string> proposition(2, "91");
+
+	proposition[1] = "";
 	system_delete_grid();
+	while (sys->grid_size.x == 0)
+		sys->grid_size.x = input_nbr_box("Please enter the width of the grid :", proposition);
+	while (sys->grid_size.y == 0)
+	{
+		proposition[0] = "51";
+		sys->grid_size.y = input_nbr_box("Please enter the height of the grid :", proposition);
+	}
 	sys->grid = new char*[sys->grid_size.y];
 	for (int i(0); i < sys->grid_size.y; i++)
 		sys->grid[i] = new char[sys->grid_size.x];
@@ -55,8 +65,8 @@ void	system_init(void)
 	sys->win = NULL;
 	sys->render = NULL;
 	system_get_window_size();
-	sys->grid_size = {91, 51};
-	system_init_grid();
+	sys->grid_size = {0, 0};
+	sys->grid = NULL;
 	sys->gen_count = 0;
 	sys->interrupt = SDL_FALSE;
 	sys->auto_run = SDL_FALSE;

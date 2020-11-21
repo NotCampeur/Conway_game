@@ -1,7 +1,8 @@
 #include "life_game.hpp"
 
-void	insert_typed_input(SDL_Event e, std::string &string, unsigned long &index
-							, int &proposition_index)
+void	insert_typed_input(SDL_Event e, std::string &string
+							, unsigned long &index, int &proposition_index
+							, unsigned long max_size_entry)
 {
 	const Uint8		*keystates = SDL_GetKeyboardState(NULL);
 
@@ -11,7 +12,7 @@ void	insert_typed_input(SDL_Event e, std::string &string, unsigned long &index
 	else if ((keystates[SDL_SCANCODE_RSHIFT] || keystates[SDL_SCANCODE_LSHIFT])
 			&& (e.key.keysym.sym == SDLK_MINUS))
 		e.key.keysym.sym = '_';
-	if ((index + 1) < MAX_SAVE_FILE_NAME)
+	if (string.size() < max_size_entry + 1)
 	{
 		string.insert(index, 1, e.key.keysym.sym);
 		(index)++;
@@ -86,15 +87,20 @@ void		move_up_in_proposition(std::string &string, unsigned long &index
 
 void	catch_input(SDL_Event e, std::string &string, unsigned long &index
 					, SDL_bool &done, std::vector<std::string> &proposition
-					, int &proposition_index)
+					, int &proposition_index, unsigned long max_size_entry)
 {
-	if ((e.key.keysym.sym == SDLK_RETURN && string.size() >= 2)
-			|| e.key.keysym.sym == SDLK_ESCAPE)
+	if (e.key.keysym.sym == SDLK_RETURN && string.size() >= 2)
 		done = SDL_TRUE;
+	else if (e.key.keysym.sym == SDLK_ESCAPE)
+	{
+		string = "|";
+		done = SDL_TRUE;
+	}
 	else if ((e.key.keysym.sym >= SDLK_a && e.key.keysym.sym <= SDLK_z)
 			|| (e.key.keysym.sym >= SDLK_0 && e.key.keysym.sym <= SDLK_9)
+			|| (e.key.keysym.sym >= SDLK_KP_0 && e.key.keysym.sym <= SDLK_KP_9)
 			|| e.key.keysym.sym == SDLK_MINUS)
-		insert_typed_input(e, string, index, proposition_index);
+		insert_typed_input(e, string, index, proposition_index, max_size_entry);
 	else if (e.key.keysym.sym == SDLK_BACKSPACE)
 		backspace_typed_input(string, index, proposition_index);
 	else if (e.key.keysym.sym == SDLK_DELETE)
@@ -107,4 +113,44 @@ void	catch_input(SDL_Event e, std::string &string, unsigned long &index
 		move_up_in_proposition(string, index, proposition, proposition_index);
 	else if (e.key.keysym.sym == SDLK_DOWN)
 		move_down_in_proposition(string, index, proposition, proposition_index);
+}
+
+void	catch_nbr_input(SDL_Event e, std::string &string, unsigned long &index
+					, SDL_bool &done, std::vector<std::string> &proposition
+					, int &proposition_index, unsigned long max_size_entry)
+{
+	if (e.key.keysym.sym == SDLK_RETURN && string.size() >= 2)
+		done = SDL_TRUE;
+	else if (e.key.keysym.sym == SDLK_ESCAPE)
+	{
+		string = "|";
+		done = SDL_TRUE;
+	}
+	else if ((e.key.keysym.sym >= SDLK_0 && e.key.keysym.sym <= SDLK_9)
+			|| (e.key.keysym.sym >= SDLK_KP_0 && e.key.keysym.sym <= SDLK_KP_9))
+		insert_typed_nbr_input(e, string, index, proposition_index, max_size_entry);
+	else if (e.key.keysym.sym == SDLK_BACKSPACE)
+		backspace_typed_input(string, index, proposition_index);
+	else if (e.key.keysym.sym == SDLK_DELETE)
+		delete_typed_input(string, index, proposition_index);
+	else if (e.key.keysym.sym == SDLK_LEFT)
+		move_left_in_input(string, index);
+	else if (e.key.keysym.sym == SDLK_RIGHT)
+		move_right_in_input(string, index);
+	else if (e.key.keysym.sym == SDLK_UP)
+		move_up_in_proposition(string, index, proposition, proposition_index);
+	else if (e.key.keysym.sym == SDLK_DOWN)
+		move_down_in_proposition(string, index, proposition, proposition_index);
+}
+
+void	insert_typed_nbr_input(SDL_Event e, std::string &string
+							, unsigned long &index, int &proposition_index
+							, unsigned long max_size_entry)
+{
+	if (string.size() < max_size_entry + 1)
+	{
+		string.insert(index, 1, e.key.keysym.sym);
+		(index)++;
+		proposition_index = 0;
+	}
 }

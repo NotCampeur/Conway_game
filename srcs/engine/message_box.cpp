@@ -41,7 +41,8 @@ SDL_bool	confirm_message(std::string title, std::string text)
 	return SDL_FALSE;
 }
 
-std::string	input_box(const char *text, std::vector<std::string> &proposition)
+std::string	input_box(const char *text, std::vector<std::string> &proposition
+					, unsigned long max_size_entry)
 {
 	std::string		result("|");
 	SDL_Event		e;
@@ -56,7 +57,37 @@ std::string	input_box(const char *text, std::vector<std::string> &proposition)
 		while (SDL_PollEvent(&e) == 1)
 		{
 			if (e.type == SDL_KEYDOWN)
-				catch_input(e, result, index, done, proposition, proposition_index);
+				catch_input(e, result, index, done, proposition, proposition_index, max_size_entry);
+			if (done == SDL_FALSE)
+			{
+				draw_rect(rect_init(sys->win_size.x / 2 - 150, sys->win_size.y /2 - 50, 300, 100), color_init(10, 70, 160));
+				draw_rect(rect_init(sys->win_size.x / 2 - 140, sys->win_size.y /2, 280, 45), color_init(50, 50, 50));
+				draw_pretty_text(text, rect_init(sys->win_size.x / 2 - 100, sys->win_size.y /2 - 45, 200, 50), color_init(0, 0, 0));
+				draw_pretty_text(result, rect_init(sys->win_size.x / 2 - 135, sys->win_size.y /2 - 5, result.length() * 9, 50), color_init(0, 0, 0));
+				SDL_RenderPresent(sys->render);
+			}
+		}
+	}
+	result.erase(result.find("|"), 1);
+	return result;
+}
+
+int	input_nbr_box(const char *text, std::vector<std::string> &proposition
+					, unsigned long max_size_entry)
+{
+	std::string		result("|");
+	SDL_Event		e;
+	SDL_bool		done(SDL_FALSE);
+	unsigned long	index(0);
+	int				proposition_index(0);
+
+	system_get_window_size();
+	while (done == SDL_FALSE)
+	{
+		while (SDL_PollEvent(&e) == 1)
+		{
+			if (e.type == SDL_KEYDOWN)
+				catch_nbr_input(e, result, index, done, proposition, proposition_index, max_size_entry);
 			draw_rect(rect_init(sys->win_size.x / 2 - 150, sys->win_size.y /2 - 50, 300, 100), color_init(10, 70, 160));
 			draw_rect(rect_init(sys->win_size.x / 2 - 140, sys->win_size.y /2, 280, 45), color_init(50, 50, 50));
 			draw_pretty_text(text, rect_init(sys->win_size.x / 2 - 100, sys->win_size.y /2 - 45, 200, 50), color_init(0, 0, 0));
@@ -65,5 +96,5 @@ std::string	input_box(const char *text, std::vector<std::string> &proposition)
 		}
 	}
 	result.erase(result.find("|"), 1);
-	return result;
+	return atoi(result.c_str());
 }

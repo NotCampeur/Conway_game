@@ -54,10 +54,12 @@ SDL_bool	confirm_message(std::string title, std::string text);
  *
  *  \param text			The text that will be displayed.
  *  \param proposition	The proposition the user can access glad to the UP | DOWN arrows.
+ *  \param max_size_entry	How much the user can write in the input.
  *
  *  \return The user's input are return after they hit hte return button.
  */
-std::string	input_box(const char *text, std::vector<std::string> &proposition);
+std::string	input_box(const char *text, std::vector<std::string> &proposition
+					, unsigned long max_size_entry = 30);
 
 /**
  *  \brief Will check the keypressed to act on the input string.
@@ -68,12 +70,45 @@ std::string	input_box(const char *text, std::vector<std::string> &proposition);
  *  \param done					The boolean which tell if the user has finished.
  *  \param proposition			The proposition the user can access glad to the UP | DOWN arrows.
  *  \param proposition_index	The index to know on which proposition the user is.
+ *  \param max_size_entry	How much the user can write in the input.
  *
  */
 void		catch_input(SDL_Event e, std::string &string
 						, unsigned long &index, SDL_bool &done
 						, std::vector<std::string> &proposition
-						, int &proposition_index);
+						, int &proposition_index
+						, unsigned long max_size_entry);
+
+/**
+ *  \brief Create a dialog box to take the user's input.
+ *  Only the numbers are catch.
+ *
+ *  \param text			The text that will be displayed.
+ *  \param proposition	The proposition the user can access glad to the UP | DOWN arrows.
+ *  \param max_size_entry	How much the user can write in the input.
+ *
+ *  \return The user's input are return after they hit hte return button.
+ */
+int			input_nbr_box(const char *text, std::vector<std::string> &proposition
+					, unsigned long max_size_entry = 3);
+
+/**
+ *  \brief Will check the keypressed to act on the input string but only for numbers.
+ *
+ *  \param e					The event to check.
+ *  \param string				The string where the input will be store.
+ *  \param index				The position of the cursor in the string.
+ *  \param done					The boolean which tell if the user has finished.
+ *  \param proposition			The proposition the user can access glad to the UP | DOWN arrows.
+ *  \param proposition_index	The index to know on which proposition the user is.
+ *  \param max_size_entry		How much the user can write in the input.
+ *
+ */
+void		catch_nbr_input(SDL_Event e, std::string &string
+						, unsigned long &index, SDL_bool &done
+						, std::vector<std::string> &proposition
+						, int &proposition_index
+						, unsigned long max_size_entry);
 
 /**
  *  \brief Will add to the string the input where the cursor is located.
@@ -82,11 +117,26 @@ void		catch_input(SDL_Event e, std::string &string
  *  \param string	The string where the input will be store.
  *  \param index	The position of the cursor in the string.
  *  \param proposition_index	The index to know on which proposition the user is.
+ *  \param max_size_entry	How much the user can write in the input.
  *
  */
-void		insert_typed_input(SDL_Event e, std::string &string
-								, unsigned long &index
-								, int &proposition_index);
+void	insert_typed_nbr_input(SDL_Event e, std::string &string
+							, unsigned long &index, int &proposition_index
+							, unsigned long max_size_entry);
+
+/**
+ *  \brief Will add to the string the input where the cursor is located.
+ *
+ *  \param e		The event to check.
+ *  \param string	The string where the input will be store.
+ *  \param index	The position of the cursor in the string.
+ *  \param proposition_index	The index to know on which proposition the user is.
+ *  \param max_size_entry	How much the user can write in the input.
+ *
+ */
+void	insert_typed_input(SDL_Event e, std::string &string
+							, unsigned long &index, int &proposition_index
+							, unsigned long max_size_entry);
 
 /**
  *  \brief Will remove the character before the cursor.

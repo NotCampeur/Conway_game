@@ -26,6 +26,13 @@ void		system_get_window_size(void);
 void		system_init_grid(void);
 
 /**
+ *  \brief Will load the grid according to the parameter.
+ * 
+ *  \param flux	The file to load from.
+ */
+void		system_load_grid(std::ifstream &flux);
+
+/**
  *  \brief Will free the memory of the grid.
  */
 void		system_delete_grid(void);

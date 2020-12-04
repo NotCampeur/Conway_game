@@ -30,9 +30,7 @@ void	save_grid(void)
 			for (int y(0); y < sys->grid_size.y; y++)
 			{
 				for (int x(0); x < sys->grid_size.x; x++)
-				{
 					flux << sys->grid[y][x];
-				}
 				flux << "\n";
 			}
 		else
@@ -56,11 +54,7 @@ static std::vector<std::string> grid_load_list()
 	for (unsigned int i(0); i < file_nb; i++)
 		flux >> file_names[i];
 	system("rm ressources/saved_grid.txt");
-	draw_rect(rect_init(sys->win_size.x / 2 - 150, sys->win_size.y /2 - 100 - (file_nb * 50), 300, 50 + (file_nb * 50)), color_init(10, 70, 160));
-	draw_pretty_text("The saved grids : ", rect_init(sys->win_size.x / 2 - 100, sys->win_size.y /2 - 95 - (file_nb * 50), 200, 50), color_init(0, 0, 0));
-	for (unsigned long i(0); i < file_names.size(); i++)
-		draw_pretty_text(file_names[i], rect_init(sys->win_size.x / 2 - 135, sys->win_size.y /2 - 50 - (file_nb * 50) + (i * 50), file_names[i].length() * 9, 50), color_init(0, 0, 0));
-	SDL_RenderPresent(sys->render);
+	draw_load_list(file_names);
 	return file_names;
 }
 
@@ -97,10 +91,7 @@ void	load_grid(void)
 		if (flux)
 		{
 			sys->grid_size = get_grid_size(file_name);
-			system_init_grid();
-			for (int y(0); y < sys->grid_size.y; y++)
-				for (int x(0); x < sys->grid_size.x; x++)
-					flux >> sys->grid[y][x];
+			system_load_grid(flux);
 			sys->gen_count = 0;
 			sys->auto_run = SDL_FALSE;
 		}

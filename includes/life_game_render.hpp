@@ -8,5 +8,6 @@ void		set_draw_color(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
 void		draw_rect(SDL_Rect rect, SDL_Color color);
 void		set_draw_color(SDL_Color color);
 void		set_draw_color(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
+void		draw_load_list(std::vector<std::string>	file_names);
 
 #endif

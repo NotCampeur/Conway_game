@@ -53,6 +53,17 @@ void	system_init_grid(void)
 			sys->grid[y][x] = '0';
 }
 
+void	system_load_grid(std::ifstream &flux)
+{
+	system_delete_grid();
+	sys->grid = new char*[sys->grid_size.y];
+	for (int i(0); i < sys->grid_size.y; i++)
+		sys->grid[i] = new char[sys->grid_size.x];
+	for (int y(0); y < sys->grid_size.y; y++)
+		for (int x(0); x < sys->grid_size.x; x++)
+			flux >> sys->grid[y][x];
+}
+
 void	system_delete_grid(void)
 {
 	delete [] sys->grid;

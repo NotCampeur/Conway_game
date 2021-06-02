@@ -9,3 +9,6 @@ The project aim to recreate the Conway's game in Cpp using SDL2
     -Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
 
 # This program is supported on linux
+
+### :boom: Known bugs.. I mean features :boom:  
+Leaks... yep that's rude

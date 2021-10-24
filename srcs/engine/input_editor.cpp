@@ -98,7 +98,7 @@ void	catch_input(SDL_Event e, std::string &string, unsigned long &index
 	}
 	else if ((e.key.keysym.sym >= SDLK_a && e.key.keysym.sym <= SDLK_z)
 			|| (e.key.keysym.sym >= SDLK_0 && e.key.keysym.sym <= SDLK_9)
-			|| (e.key.keysym.sym >= SDLK_KP_0 && e.key.keysym.sym <= SDLK_KP_9)
+			|| (e.key.keysym.sym >= SDLK_KP_1 && e.key.keysym.sym <= SDLK_KP_0) // Take care of the define depending the OS
 			|| e.key.keysym.sym == SDLK_MINUS)
 		insert_typed_input(e, string, index, proposition_index, max_size_entry);
 	else if (e.key.keysym.sym == SDLK_BACKSPACE)
@@ -127,7 +127,7 @@ void	catch_nbr_input(SDL_Event e, std::string &string, unsigned long &index
 		done = SDL_TRUE;
 	}
 	else if ((e.key.keysym.sym >= SDLK_0 && e.key.keysym.sym <= SDLK_9)
-			|| (e.key.keysym.sym >= SDLK_KP_0 && e.key.keysym.sym <= SDLK_KP_9))
+			|| (e.key.keysym.sym >= SDLK_KP_1 && e.key.keysym.sym <= SDLK_KP_0)) //Take care of the define depending the OS
 		insert_typed_nbr_input(e, string, index, proposition_index, max_size_entry);
 	else if (e.key.keysym.sym == SDLK_BACKSPACE)
 		backspace_typed_input(string, index, proposition_index);

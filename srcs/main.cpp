@@ -18,6 +18,5 @@ int		main()
 		std::cerr << "Error : " << e.what() << std::endl;
 		exit(EXIT_FAILURE);
 	}
-	exit(EXIT_SUCCESS);
 	return EXIT_SUCCESS;
 }

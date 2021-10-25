@@ -66,6 +66,8 @@ void	system_load_grid(std::ifstream &flux)
 
 void	system_delete_grid(void)
 {
+	for (int i(0); i < sys->grid_size.y; i++)
+		delete[] sys->grid[i];
 	delete [] sys->grid;
 }
 

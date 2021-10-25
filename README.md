@@ -11,4 +11,4 @@ The project aim to recreate the Conway's game in Cpp using SDL2
 # This program is supported on linux
 
 ### :boom: Known bugs.. I mean features :boom:  
-Leaks... yep that's rude
+* No bugs has been reported.

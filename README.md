@@ -11,4 +11,4 @@ The project aim to recreate the Conway's game in Cpp using SDL2
 # This program is supported on linux
 
 ### :boom: Known bugs.. I mean features :boom:  
-* No bugs has been reported.
+* When you load a grid bigger than the actual the program segfault..
